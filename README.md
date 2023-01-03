@@ -360,13 +360,32 @@ Received: Hello World
 
 
 
+## エラー対処
+
+### ~FIFO /tmp/dlt cannot be opened. Retrying later...
+
+#### 原因
+
+`dlt-daemon`が起動していないため(`/tmp/dlt`が存在しない)
+
+#### 対処
+
+`dlt-daemon`を起動させる(`/tmp/dlt`ができる)
+
+```bash
+/usr/local/bin/dlt-daemon
+```
 
 
-
-
-
+## faq
 
 Q. Wiresharkが何も反応しないのはなんで？
+
 A. 同一マシン上での通信にはBoostを利用した**UNIXドメインソケット通信**が使われているため、Wiresharkにはキャプチャされない。
-[wireshark can't capature client log or log server send to client #165](https://github.com/COVESA/vsomeip/issues/165)
-[UNIXドメインソケットとは](https://mypage.otsuka-shokai.co.jp/contents/business-oyakudachi/words/unix-domain-socket.html)
+
+- [wireshark can't capature client log or log server send to client #165](https://github.com/COVESA/vsomeip/issues/165)
+- [UNIXドメインソケットとは](https://mypage.otsuka-shokai.co.jp/contents/business-oyakudachi/words/unix-domain-socket.html)
+- [UNIXドメインソケット通信の内容を見たい](https://qiita.com/catatsuy/items/e514e8bd45270106b17e)
+- [strace コマンドの使い方をまとめてみた](http://blog.livedoor.jp/sonots/archives/18193659.html)
+
+
